@@ -96,7 +96,6 @@ function Activate() {
                         try {
                             // Request account access if needed
                             const web3 = new Web3(new Web3.providers.HttpProvider(`https://polygonzkevm-testnet.g.alchemy.com/v2/lsmKHpFVS4DmS_WzTTQd1S_aXgc5jRBZ`));
-                            const contractAddress = "0x8e570261d7E1A004e046894929080a6035d256fe"
 
                             const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
                             await window.ethereum.enable();
