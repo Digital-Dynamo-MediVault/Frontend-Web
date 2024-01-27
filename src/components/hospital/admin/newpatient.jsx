@@ -12,6 +12,7 @@ function Newpatient({ handleClosePopups }) {
         bloodGroup: "",
         guardian: "",
         guardianp: 0,
+        phone: 0
     });
 
     const handleChange = (e) => {
@@ -109,6 +110,22 @@ function Newpatient({ handleClosePopups }) {
                                     id="email"
                                     name="email"
                                     value={formData.email}
+                                    onChange={handleChange}
+                                    className="h-[4vh] w-[15vw] border border-black rounded-md"
+                                />
+                            </div>
+                            <div className="flex flex-col items-center justify-center">
+                                <label
+                                    htmlFor="phone"
+                                    className="text-left font-inter font-bold text-[1.2rem]"
+                                >
+                                    PHONE
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
                                     onChange={handleChange}
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
                                 />

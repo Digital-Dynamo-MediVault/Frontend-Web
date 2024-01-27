@@ -1,30 +1,44 @@
-
 [
 	{
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "recordIndex",
+				"name": "_pId",
 				"type": "uint256"
 			},
 			{
+				"internalType": "string",
+				"name": "_specialization",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_problemDescription",
+				"type": "string"
+			},
+			{
 				"internalType": "address",
-				"name": "doctorAddress",
+				"name": "_doctor",
 				"type": "address"
 			},
 			{
 				"internalType": "string",
-				"name": "description",
+				"name": "_symptoms",
 				"type": "string"
 			}
 		],
-		"name": "addDiagnosis",
+		"name": "addCase",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "dId",
+				"type": "uint256"
+			},
 			{
 				"internalType": "string",
 				"name": "name",
@@ -46,6 +60,11 @@
 				"type": "string"
 			},
 			{
+				"internalType": "uint256",
+				"name": "phone",
+				"type": "uint256"
+			},
+			{
 				"internalType": "uint48",
 				"name": "experience",
 				"type": "uint48"
@@ -62,39 +81,6 @@
 			}
 		],
 		"name": "addDoctor",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "addressh",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "email",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "phoneno",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "hospitalAddress",
-				"type": "address"
-			}
-		],
-		"name": "addHospital",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -125,6 +111,11 @@
 				"internalType": "string",
 				"name": "email",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "phone",
+				"type": "uint256"
 			},
 			{
 				"internalType": "string",
@@ -160,6 +151,89 @@
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "cases",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "pId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "specialization",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "problemDescription",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "doctor",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "symptoms",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "doctorPatientCases",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "pId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "specialization",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "problemDescription",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "doctor",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "symptoms",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
@@ -167,6 +241,11 @@
 		],
 		"name": "doctors",
 		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "dId",
+				"type": "uint256"
+			},
 			{
 				"internalType": "string",
 				"name": "name",
@@ -186,6 +265,11 @@
 				"internalType": "string",
 				"name": "email",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "phone",
+				"type": "uint256"
 			},
 			{
 				"internalType": "uint48",
@@ -210,7 +294,7 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "recordIndex",
+				"name": "pId",
 				"type": "uint256"
 			},
 			{
@@ -219,77 +303,32 @@
 				"type": "address"
 			}
 		],
-		"name": "getDiagnosis",
+		"name": "getCase",
 		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
 			{
 				"internalType": "string",
 				"name": "",
 				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
+			},
 			{
-				"internalType": "uint256",
-				"name": "index",
-				"type": "uint256"
-			}
-		],
-		"name": "getMedicalRecord",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "description",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "doctorAddress",
-						"type": "address"
-					}
-				],
-				"internalType": "struct MediVault1.Diagnosis[]",
+				"internalType": "string",
 				"name": "",
-				"type": "tuple[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
+				"type": "string"
+			},
 			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
-			}
-		],
-		"name": "hospitals",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "name",
-				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "addressh",
+				"name": "",
 				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "email",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "phoneno",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -329,6 +368,11 @@
 				"internalType": "string",
 				"name": "email",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "phone",
+				"type": "uint256"
 			},
 			{
 				"internalType": "string",

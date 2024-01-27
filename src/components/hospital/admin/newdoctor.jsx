@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { apiUrl } from "../../../constants/apiUrl";
 
 function NewDoctor({ handleClosePopups }) {
     const [formData, setFormData] = useState({
@@ -6,10 +8,10 @@ function NewDoctor({ handleClosePopups }) {
         age: "",
         gender: "",
         email: "",
-        address: "",
         degree: "",
-        yoe: "",
+        exprience: "",
         specialization: "",
+        phone: 0
     });
 
     const specializations = [
@@ -30,6 +32,11 @@ function NewDoctor({ handleClosePopups }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        axios.post(`${apiUrl}/doctor/adddoctor`, formData).then((res) => {
+            console.log(res);
+            handleClosePopups();
+        })
+
         // Add your logic for form submission here
         console.log("Form data submitted:", formData);
     };
@@ -102,7 +109,7 @@ function NewDoctor({ handleClosePopups }) {
 
                             <div className="flex flex-col items-center justify-center">
                                 <label
-                                    htmlFor="name"
+                                    htmlFor="email"
                                     className="text-left font-inter font-bold text-[1.2rem]"
                                 >
                                     EMAIL
@@ -116,23 +123,24 @@ function NewDoctor({ handleClosePopups }) {
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
                                 />
                             </div>
-
                             <div className="flex flex-col items-center justify-center">
                                 <label
-                                    htmlFor="address"
+                                    htmlFor="phone"
                                     className="text-left font-inter font-bold text-[1.2rem]"
                                 >
-                                    ADDRESS
+                                    PHONE
                                 </label>
                                 <input
-                                    type="text"
-                                    id="address"
-                                    name="address"
-                                    value={formData.address}
+                                    type="phone"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
                                     onChange={handleChange}
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
                                 />
                             </div>
+
+
 
                             <div className="flex flex-col items-center justify-center">
                                 <label
@@ -153,16 +161,16 @@ function NewDoctor({ handleClosePopups }) {
 
                             <div className="flex flex-col items-center justify-center">
                                 <label
-                                    htmlFor="yoe"
+                                    htmlFor="exprience"
                                     className="text-start font-inter font-bold text-[1.2rem]"
                                 >
                                     YEARS OF EXPERIENCE
                                 </label>
                                 <input
-                                    type="text"
-                                    id="yoe"
-                                    name="yoe"
-                                    value={formData.yoe}
+                                    type="number"
+                                    id="exprience"
+                                    name="exprience"
+                                    value={formData.exprience}
                                     onChange={handleChange}
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
                                 />
