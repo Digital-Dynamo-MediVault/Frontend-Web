@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { apiUrl } from "../../../constants/apiUrl";
 
 function Newpatient({ handleClosePopups }) {
     const [formData, setFormData] = useState({
@@ -6,10 +8,10 @@ function Newpatient({ handleClosePopups }) {
         age: "",
         gender: "",
         email: "",
-        address: "",
+        addressp: "",
         bloodGroup: "",
-        guardianName: "",
-        guardianPhone: "",
+        guardian: "",
+        guardianp: 0,
     });
 
     const handleChange = (e) => {
@@ -21,6 +23,9 @@ function Newpatient({ handleClosePopups }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        axios.post(`${apiUrl}/patient/addpatient`, formData).then((res) => {
+            console.log(res);
+        })
         // Add your logic for form submission here
         console.log("Form data submitted:", formData);
     };
@@ -110,16 +115,16 @@ function Newpatient({ handleClosePopups }) {
 
                             <div className="flex flex-col items-center justify-center">
                                 <label
-                                    htmlFor="address"
+                                    htmlFor="addressp"
                                     className="text-left font-inter font-bold text-[1.2rem]"
                                 >
                                     ADDRESS
                                 </label>
                                 <input
                                     type="text"
-                                    id="address"
-                                    name="address"
-                                    value={formData.address}
+                                    id="addressp"
+                                    name="addressp"
+                                    value={formData.addressp}
                                     onChange={handleChange}
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
                                 />
@@ -127,15 +132,15 @@ function Newpatient({ handleClosePopups }) {
 
                             <div className="flex flex-col items-center justify-center">
                                 <label
-                                    htmlFor="bloodgroup"
+                                    htmlFor="bloodGroup"
                                     className="text-left font-inter font-bold text-[1.2rem]"
                                 >
                                     BLOOD GROUP
                                 </label>
                                 <input
                                     type="text"
-                                    id="bloodgroup"
-                                    name="bloodgroup"
+                                    id="bloodGroup"
+                                    name="bloodGroup"
                                     value={formData.bloodGroup}
                                     onChange={handleChange}
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
@@ -144,16 +149,16 @@ function Newpatient({ handleClosePopups }) {
 
                             <div className="flex flex-col items-center justify-center">
                                 <label
-                                    htmlFor="guardianphone"
+                                    htmlFor="guardian"
                                     className="text-start font-inter font-bold text-[1.2rem]"
                                 >
                                     GUARDIAN NAME
                                 </label>
                                 <input
                                     type="text"
-                                    id="guardianame"
-                                    name="guardianame"
-                                    value={formData.guardianName}
+                                    id="guardian"
+                                    name="guardian"
+                                    value={formData.guardian}
                                     onChange={handleChange}
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
                                 />
@@ -161,16 +166,16 @@ function Newpatient({ handleClosePopups }) {
 
                             <div className="flex flex-col items-center justify-center">
                                 <label
-                                    htmlFor="guardianphone"
+                                    htmlFor="guardianp"
                                     className="text-left font-inter font-bold text-[1.2rem]"
                                 >
                                     GUARDIAN CONTACT
                                 </label>
                                 <input
                                     type="tel"
-                                    id="guardianphone"
-                                    name="guardianphone"
-                                    value={formData.guardianPhone}
+                                    id="guardianp"
+                                    name="guardianp"
+                                    value={formData.guardianp}
                                     onChange={handleChange}
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
                                 />
