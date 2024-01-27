@@ -8,7 +8,6 @@ function NewDoctor({ handleClosePopups }) {
         age: "",
         gender: "",
         email: "",
-        address: "",
         degree: "",
         exprience: "",
         specialization: "",
@@ -141,22 +140,7 @@ function NewDoctor({ handleClosePopups }) {
                                 />
                             </div>
 
-                            <div className="flex flex-col items-center justify-center">
-                                <label
-                                    htmlFor="address"
-                                    className="text-left font-inter font-bold text-[1.2rem]"
-                                >
-                                    ADDRESS
-                                </label>
-                                <input
-                                    type="text"
-                                    id="address"
-                                    name="address"
-                                    value={formData.address}
-                                    onChange={handleChange}
-                                    className="h-[4vh] w-[15vw] border border-black rounded-md"
-                                />
-                            </div>
+
 
                             <div className="flex flex-col items-center justify-center">
                                 <label

@@ -120,7 +120,7 @@ function Activate() {
                                     response.data.user.age,
                                     response.data.user.gender,
                                     response.data.user.email,
-                                    response.data.user.phone,
+                                    response.data.user.phone.toString(),
                                     response.data.user.exprience,
                                     response.data.user.specialization,
                                     response.data.user.metamaskAddress).encodeABI(),
