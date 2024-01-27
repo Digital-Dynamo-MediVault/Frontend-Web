@@ -25,6 +25,7 @@ function Newpatient({ handleClosePopups }) {
         e.preventDefault();
         axios.post(`${apiUrl}/patient/addpatient`, formData).then((res) => {
             console.log(res);
+            handleClosePopups();
         })
         // Add your logic for form submission here
         console.log("Form data submitted:", formData);
