@@ -114,14 +114,14 @@ function Activate() {
                                 gasLimit: '0x' + parseInt(gasLimit).toString(16),
                                 to: contractAddress,
                                 value: '0x0',
-                                data: contractInstance.methods.addPatient(
+                                data: contractInstance.methods.addDoctor(
                                     response.data.user.dId,
                                     response.data.user.name,
                                     response.data.user.age,
                                     response.data.user.gender,
                                     response.data.user.email,
+                                    response.data.user.phone,
                                     response.data.user.exprience,
-                                    response.data.user.bloodGroup,
                                     response.data.user.specialization,
                                     response.data.user.metamaskAddress).encodeABI(),
                             };
