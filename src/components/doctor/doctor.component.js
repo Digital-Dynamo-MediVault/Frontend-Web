@@ -18,6 +18,15 @@ function Doctor() {
     setSelectedPatient(patient);
     setIsPopupOpen(true);
   };
+  useEffect(() => {
+    // Iterate through the patientArray to find a patient with a prescription
+    const patientWithPrescription = patientArray.find(pat => pat.prescription);
+
+    // Set the prescriptionText based on the found patient's prescription
+    if (patientWithPrescription) {
+      setPrescriptionText(patientWithPrescription.prescription);
+    }
+  }, [patientArray]);
   const [specialization, setSpecialization] = useState('');
   const [doctorData, setDoctorData] = useState(null);
   const [selectedDoctor, setSelectedDoctor] = useState(null);
@@ -50,7 +59,7 @@ function Doctor() {
   const fetchData = async () => {
     try {
       window.ethereum.request({ method: 'eth_requestAccounts' }).then(async function (accounts) {
-        const response = await axios.get(`${apiUrl}/case/patient/${"0xe543e3dda8bfa1c208333c65c0dfb8c1c3378260"}`); // Replace with your actual API endpoint
+        const response = await axios.get(`${apiUrl}/case/patient/${accounts[0]}`); // Replace with your actual API endpoint
         setPatientArray(response.data.data);
         console.log(patientArray)
 
@@ -178,26 +187,27 @@ function Doctor() {
                 </tr>
               </thead>
               <tbody>
-                {patientArray.length > 0 && patientArray.map((pat) => {
-                  pat.prescription && setPrescriptionText(pat.prescription)
-                  return (
-                    <tr key={pat.pId} className="border-t border-teal-200">
-                      {/* Patient information */}
-                      <td className="py-2 px-4 border border-teal-200">
-                        <button
-                          className="text-black font-medium focus:outline-none"
-                          onClick={() => handleButtonClick(pat)}
-                        >
-                          {pat.patientData.name}
-                        </button>
-                      </td>
-                      <td className="py-2 px-4 border border-teal-200">{pat.pId}</td>
-                      <td className="py-2 px-4 border border-teal-200">{pat.patientData.age}</td>
-                      <td className="py-2 px-4 border border-teal-200">{pat.patientData.bloodGroup}</td>
-                      <td className="py-2 px-4 border border-teal-200">{pat.patientData.gender}</td>
-                    </tr>
-                  )
-                })}
+                {
+                  patientArray.length > 0 && patientArray.map((pat) => {
+                    // pat.prescription && setPrescriptionText(pat.prescription)
+                    return (
+                      <tr key={pat.pId} className="border-t border-teal-200">
+                        {/* Patient information */}
+                        <td className="py-2 px-4 border border-teal-200">
+                          <button
+                            className="text-black font-medium focus:outline-none"
+                            onClick={() => handleButtonClick(pat)}
+                          >
+                            {pat.patientData.name}
+                          </button>
+                        </td>
+                        <td className="py-2 px-4 border border-teal-200">{pat.pId}</td>
+                        <td className="py-2 px-4 border border-teal-200">{pat.patientData.age}</td>
+                        <td className="py-2 px-4 border border-teal-200">{pat.patientData.bloodGroup}</td>
+                        <td className="py-2 px-4 border border-teal-200">{pat.patientData.gender}</td>
+                      </tr>
+                    )
+                  })}
               </tbody>
             </table>
 
