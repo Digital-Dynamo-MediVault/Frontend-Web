@@ -12,6 +12,7 @@ function NewDoctor({ handleClosePopups }) {
         degree: "",
         exprience: "",
         specialization: "",
+        phone: 0
     });
 
     const specializations = [
@@ -32,7 +33,7 @@ function NewDoctor({ handleClosePopups }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`${apiUrl}/patient/adddoctor`, formData).then((res) => {
+        axios.post(`${apiUrl}/doctor/adddoctor`, formData).then((res) => {
             console.log(res);
             handleClosePopups();
         })
@@ -109,7 +110,7 @@ function NewDoctor({ handleClosePopups }) {
 
                             <div className="flex flex-col items-center justify-center">
                                 <label
-                                    htmlFor="name"
+                                    htmlFor="email"
                                     className="text-left font-inter font-bold text-[1.2rem]"
                                 >
                                     EMAIL
@@ -119,6 +120,22 @@ function NewDoctor({ handleClosePopups }) {
                                     id="email"
                                     name="email"
                                     value={formData.email}
+                                    onChange={handleChange}
+                                    className="h-[4vh] w-[15vw] border border-black rounded-md"
+                                />
+                            </div>
+                            <div className="flex flex-col items-center justify-center">
+                                <label
+                                    htmlFor="phone"
+                                    className="text-left font-inter font-bold text-[1.2rem]"
+                                >
+                                    PHONE
+                                </label>
+                                <input
+                                    type="phone"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
                                     onChange={handleChange}
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
                                 />
