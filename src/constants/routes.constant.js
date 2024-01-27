@@ -1,4 +1,5 @@
 import Activate from "../components/patient/activate.component";
+import ActivatePage from "../pages/activate.page";
 import DoctorPage from "../pages/doctor.page";
 import HomePage from "../pages/home.page";
 import HospitalPage from "../pages/hospital.page";
@@ -29,7 +30,7 @@ export const PUBLIC_ROUTES = [
   },
   {
     path: "/activate",
-    component: <Activate />,
+    component: <ActivatePage />,
   },
 
 ];

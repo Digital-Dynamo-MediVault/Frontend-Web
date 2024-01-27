@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { apiUrl } from "../../../constants/apiUrl";
 
 function NewDoctor({ handleClosePopups }) {
     const [formData, setFormData] = useState({
@@ -8,7 +10,7 @@ function NewDoctor({ handleClosePopups }) {
         email: "",
         address: "",
         degree: "",
-        yoe: "",
+        exprience: "",
         specialization: "",
     });
 
@@ -30,6 +32,11 @@ function NewDoctor({ handleClosePopups }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        axios.post(`${apiUrl}/patient/adddoctor`, formData).then((res) => {
+            console.log(res);
+            handleClosePopups();
+        })
+
         // Add your logic for form submission here
         console.log("Form data submitted:", formData);
     };
@@ -153,16 +160,16 @@ function NewDoctor({ handleClosePopups }) {
 
                             <div className="flex flex-col items-center justify-center">
                                 <label
-                                    htmlFor="yoe"
+                                    htmlFor="exprience"
                                     className="text-start font-inter font-bold text-[1.2rem]"
                                 >
                                     YEARS OF EXPERIENCE
                                 </label>
                                 <input
-                                    type="text"
-                                    id="yoe"
-                                    name="yoe"
-                                    value={formData.yoe}
+                                    type="number"
+                                    id="exprience"
+                                    name="exprience"
+                                    value={formData.exprience}
                                     onChange={handleChange}
                                     className="h-[4vh] w-[15vw] border border-black rounded-md"
                                 />

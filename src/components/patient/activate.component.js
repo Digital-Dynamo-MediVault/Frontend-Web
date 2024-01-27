@@ -16,7 +16,7 @@ function Activate() {
         if (password === confirmPassword) {
             window.ethereum.request({ method: 'eth_requestAccounts' }).then(function (accounts) {
                 console.log(accounts[0]);
-                axios.post(`${apiUrl}/patient/activate`, { email: queryParams.get('email'), password: password, metamaskAddress: accounts[0] }).then(async function (response) {
+                axios.post(`${apiUrl}/${queryParams.get('role') === 'patient' ? "patient" : "doctor"}/activate`, { email: queryParams.get('email'), password: password, metamaskAddress: accounts[0] }).then(async function (response) {
                     console.log(response.data.user);
                     try {
                         // Request account access if needed
