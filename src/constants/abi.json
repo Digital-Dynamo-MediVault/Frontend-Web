@@ -3,31 +3,51 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_pId",
+				"name": "dId",
 				"type": "uint256"
 			},
 			{
 				"internalType": "string",
-				"name": "_specialization",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint48",
+				"name": "age",
+				"type": "uint48"
+			},
+			{
+				"internalType": "string",
+				"name": "gender",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "_problemDescription",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "phone",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint48",
+				"name": "experience",
+				"type": "uint48"
+			},
+			{
+				"internalType": "string",
+				"name": "specialization",
 				"type": "string"
 			},
 			{
 				"internalType": "address",
-				"name": "_doctor",
+				"name": "metamaskAddress",
 				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_symptoms",
-				"type": "string"
 			}
 		],
-		"name": "addCase",
+		"name": "addDoctor",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -36,34 +56,64 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "recordIndex",
+				"name": "pId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint48",
+				"name": "age",
+				"type": "uint48"
+			},
+			{
+				"internalType": "string",
+				"name": "gender",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "phone",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "addressp",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "bloodGroup",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "guardian",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "guardianp",
 				"type": "uint256"
 			},
 			{
 				"internalType": "address",
-				"name": "doctorAddress",
+				"name": "metamaskAddress",
 				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "patientAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "description",
-				"type": "string"
 			}
 		],
-		"name": "addDiagnosis",
+		"name": "addPatient",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
-	},
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
 	},
 	{
 		"inputs": [
@@ -74,50 +124,6 @@
 			}
 		],
 		"name": "cases",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "pId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "specialization",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "problemDescription",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "doctor",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "symptoms",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "doctorPatientCases",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -202,115 +208,6 @@
 				"internalType": "address",
 				"name": "metamaskAddress",
 				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "pId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "doctorAddress",
-				"type": "address"
-			}
-		],
-		"name": "getCase",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "recordIndex",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "doctorAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "patientAddress",
-				"type": "address"
-			}
-		],
-		"name": "getDiagnosis",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "index",
-				"type": "uint256"
-			}
-		],
-		"name": "getMedicalRecord",
-		"outputs": [
-			{
-				"components": [
-					{
-						"internalType": "string",
-						"name": "description",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "doctorAddress",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "patientAddress",
-						"type": "address"
-					}
-				],
-				"internalType": "struct MediVault1.Diagnosis[]",
-				"name": "",
-				"type": "tuple[]"
 			}
 		],
 		"stateMutability": "view",
