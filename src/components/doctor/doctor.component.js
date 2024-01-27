@@ -3,9 +3,7 @@ import Header from "../common/Header";
 import Sidebar from "../common/Sidebar";
 
 function Doctor() {
-  const [frameCheckboxChecked, setFrameCheckboxChecked] = useState(true);
   const [frameCheckbox1Checked, setFrameCheckbox1Checked] = useState(true);
-  const [frameCheckbox2Checked, setFrameCheckbox2Checked] = useState(true);
 
   const daysArray = Array.from({ length: 31 }, (_, index) => index + 1);
   const patArray = Array.from({ length: 7 }, (_, index) => index + 1);
@@ -15,8 +13,8 @@ function Doctor() {
       <div className="flex flex-col items-center justify-between">
         <Header />
         <div className="flex p-3">
-          <div className="h-[35vh] rounded-2xl w-[55vw] bg-azure m-2"> 
-            <div className="rounded-t-3xs flex items-center mb-[2vh] justify-between h-[4vh] w-[54.8vw] bg-teal-100 flex items-start justify-between text-[1.2rem] text-white border-solid border-teal-200">
+          <div className="h-[35vh] rounded-2xl w-[55vw] bg-azure m-2">
+            <div className="rounded-t-3xs mb-[2vh] justify-between h-[4vh] w-[54.8vw] bg-teal-100 flex items-start justify-between text-[1.2rem] text-white border-solid border-teal-200">
               <b className="mx-2">TODAYS PATIENT</b>
               <b className="mx-2">24th JAN 2024</b>
             </div>

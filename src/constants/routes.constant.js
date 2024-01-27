@@ -1,3 +1,4 @@
+import Appointment from "../components/doctor/appointment.component";
 import Activate from "../components/patient/activate.component";
 import ActivatePage from "../pages/activate.page";
 import DoctorPage from "../pages/doctor.page";
@@ -18,6 +19,10 @@ export const PRIVATE_ROUTES = [
     path: "/admin",
     component: <HospitalAdminPage />,
   },
+  {
+    path: "/appointment",
+    component: <Appointment />,
+  },
 ];
 export const PUBLIC_ROUTES = [
   {
@@ -32,5 +37,4 @@ export const PUBLIC_ROUTES = [
     path: "/activate",
     component: <ActivatePage />,
   },
-
 ];
