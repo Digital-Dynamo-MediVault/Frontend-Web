@@ -45,23 +45,20 @@ function Doctor() {
     "Pharmacist"
   ];
 
-  useEffect(() => {
-    // Make an API call to fetch patient data
-    const fetchData = async () => {
-      try {
-        window.ethereum.request({ method: 'eth_requestAccounts' }).then(async function (accounts) {
-          const response = await axios.get(`${apiUrl}/case/patient/${accounts[0]}`); // Replace with your actual API endpoint
-          setPatientArray(response.data.data);
-          console.log(patientArray)
 
-        })
-      } catch (error) {
-        console.error('Error fetching patient data:', error);
-      }
-    };
+  // Make an API call to fetch patient data
+  const fetchData = async () => {
+    try {
+      window.ethereum.request({ method: 'eth_requestAccounts' }).then(async function (accounts) {
+        const response = await axios.get(`${apiUrl}/case/patient/${accounts[0]}`); // Replace with your actual API endpoint
+        setPatientArray(response.data.data);
+        console.log(patientArray)
 
-    fetchData();
-  }, []);
+      })
+    } catch (error) {
+      console.error('Error fetching patient data:', error);
+    }
+  };
 
   const [prescriptionText, setPrescriptionText] = useState('');
   const handleSendData = async () => {
@@ -164,7 +161,10 @@ function Doctor() {
         <div className="flex p-3">
           <div className="h-[35vh] rounded-2xl w-[55vw] bg-azure m-2">
             <div className="rounded-t-3xs items-center mb-[2vh] h-[4vh] w-[54.8vw] bg-teal-100 flex justify-between text-[1.2rem] text-white border-solid border-teal-200">
-              <b className="mx-2">TODAYS PATIENT</b>
+              <div className="flex justify-center items-center">
+                <p onClick={fetchData} className="cursor-pointer">🔃</p>
+                <b className="mx-2">TODAYS PATIENT</b>
+              </div>
               <b className="mx-2">24th JAN 2024</b>
             </div>
             <table className="w-full border-collapse">
