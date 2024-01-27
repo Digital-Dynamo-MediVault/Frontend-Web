@@ -7,6 +7,11 @@
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
+				"name": "_cId",
+				"type": "uint256"
+			},
+			{
 				"internalType": "string",
 				"name": "_specialization",
 				"type": "string"
@@ -152,6 +157,34 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
+				"name": "pId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "cId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "doctor",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "prescribed",
+				"type": "string"
+			}
+		],
+		"name": "addPrescription",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -161,6 +194,11 @@
 			{
 				"internalType": "uint256",
 				"name": "pId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "cId",
 				"type": "uint256"
 			},
 			{
@@ -198,6 +236,11 @@
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"name": "doctorPatientCases",
@@ -205,6 +248,11 @@
 			{
 				"internalType": "uint256",
 				"name": "pId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "cId",
 				"type": "uint256"
 			},
 			{
@@ -225,6 +273,50 @@
 			{
 				"internalType": "string",
 				"name": "symptoms",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "doctorPatientPrescriptions",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "pId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "cId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "doctor",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "prescribed",
 				"type": "string"
 			}
 		],
@@ -298,6 +390,11 @@
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
+				"name": "cId",
+				"type": "uint256"
+			},
+			{
 				"internalType": "address",
 				"name": "doctorAddress",
 				"type": "address"
@@ -305,6 +402,11 @@
 		],
 		"name": "getCase",
 		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
 			{
 				"internalType": "uint256",
 				"name": "",
@@ -319,6 +421,50 @@
 				"internalType": "string",
 				"name": "",
 				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "pId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "cId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "doctor",
+				"type": "address"
+			}
+		],
+		"name": "getPrescription",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			},
 			{
 				"internalType": "address",
@@ -398,6 +544,40 @@
 				"internalType": "address",
 				"name": "metamaskAddress",
 				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "prescribes",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "pId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "cId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "doctor",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "prescribed",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",

@@ -1,3 +1,3 @@
-export const contractAddress = "0xFe1e16ADBd06b9E9aE1D0AEe86E7520414ce63c2"
-// export const apiUrl = "http://localhost:5000"
-export const apiUrl = "https://embarrassed-twill-dog.cyclic.app"
+export const contractAddress = "0xB0573281785b193Ce1bC2Ae480Be9d6cB2bed492"
+export const apiUrl = "http://localhost:5000"
+// export const apiUrl = "https://embarrassed-twill-dog.cyclic.app"

@@ -21,6 +21,7 @@ function NewDoctor({ handleClosePopups }) {
         "Orthopedic Surgeon",
         "Pediatrician",
         "Ophthalmologist",
+        "Pharmacist"
     ];
 
     const handleChange = (e) => {

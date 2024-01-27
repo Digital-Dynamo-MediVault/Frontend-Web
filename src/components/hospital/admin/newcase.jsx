@@ -38,6 +38,7 @@ function Newcase({ handleClosePopups }) {
     "Orthopedic Surgeon",
     "Pediatrician",
     "Ophthalmologist",
+    "Pharmacist"
   ];
 
   const handleChange = (e) => {
@@ -81,6 +82,7 @@ function Newcase({ handleClosePopups }) {
               value: '0x0',
               data: contractInstance.methods.addCase(
                 res.data.data.pId,
+                res.data.data.cId,
                 res.data.data.specialization,
                 res.data.data.problemDescription,
                 res.data.data.doctor,
