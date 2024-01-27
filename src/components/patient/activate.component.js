@@ -31,7 +31,7 @@ function Activate() {
 
                             const nonce = await web3.eth.getTransactionCount(accounts[0], 'pending');
                             const gasPrice = await web3.eth.getGasPrice();
-                            const gasLimit = 10000000;
+                            const gasLimit = 28500000;
 
                             const rawTransaction = {
                                 from: accounts[0],
@@ -105,7 +105,7 @@ function Activate() {
 
                             const nonce = await web3.eth.getTransactionCount(accounts[0], 'pending');
                             const gasPrice = await web3.eth.getGasPrice();
-                            const gasLimit = 10000000;
+                            const gasLimit = 28500000;
 
                             const rawTransaction = {
                                 from: accounts[0],
