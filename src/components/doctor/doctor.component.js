@@ -163,7 +163,7 @@ function Doctor() {
         <Header />
         <div className="flex p-3">
           <div className="h-[35vh] rounded-2xl w-[55vw] bg-azure m-2">
-            <div className="rounded-t-3xs flex mb-[2vh] h-[4vh] w-[54.8vw] bg-teal-100 items-start justify-between text-[1.2rem] text-white border-solid border-teal-200">
+            <div className="rounded-t-3xs items-center mb-[2vh] h-[4vh] w-[54.8vw] bg-teal-100 flex justify-between text-[1.2rem] text-white border-solid border-teal-200">
               <b className="mx-2">TODAYS PATIENT</b>
               <b className="mx-2">24th JAN 2024</b>
             </div>
@@ -287,7 +287,7 @@ function Doctor() {
             )}
           </div>
           {/* <div className="h-[30vh] w-[25vw] m-2 rounded-3xs bg-azure flex flex-col">
-            <div className="rounded-t-3xs flex items-center justify-between h-[4vh] w-[24.8vw] bg-teal-100 flex items-start justify-between text-[1.2rem] text-white">
+            <div className="rounded-t-3xs  h-[4vh] w-[24.8vw] bg-teal-100 flex items-start justify-between text-[1.2rem] text-white">
               <b className="mx-2">CALENDER</b>
               <b className="mx-2">JAN 2024</b>
             </div>
@@ -304,7 +304,7 @@ function Doctor() {
           </div> */}
         </div>
         {/* <div className="bg-azure box-border border border-solid border-teal-200 mb-5 h-[40vh] w-[50vw] rounded-xl mx-auto">
-          <div className="h-[4vh] w-[50vw] items-center pl-4 rounded-t-3xs text-white font-medium bg-teal-100 box-border flex items-start justify-between ">
+          <div className="h-[4vh] w-[50vw]  pl-4 rounded-t-3xs text-white font-medium bg-teal-100 box-border flex items-start justify-between ">
             PATIENT'S OBSERVATIONS
           </div>
           <div className="w-[45vw] h-[30vh]">Description</div>
