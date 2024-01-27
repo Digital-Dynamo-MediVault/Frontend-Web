@@ -50,7 +50,7 @@ function Doctor() {
   const fetchData = async () => {
     try {
       window.ethereum.request({ method: 'eth_requestAccounts' }).then(async function (accounts) {
-        const response = await axios.get(`${apiUrl}/case/patient/${accounts[0]}`); // Replace with your actual API endpoint
+        const response = await axios.get(`${apiUrl}/case/patient/${"0xe543e3dda8bfa1c208333c65c0dfb8c1c3378260"}`); // Replace with your actual API endpoint
         setPatientArray(response.data.data);
         console.log(patientArray)
 
