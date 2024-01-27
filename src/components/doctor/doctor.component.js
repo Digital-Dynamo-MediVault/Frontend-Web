@@ -178,7 +178,7 @@ function Doctor() {
                 </tr>
               </thead>
               <tbody>
-                {patientArray.map((pat) => {
+                {patientArray.length() > 0 && patientArray.map((pat) => {
                   pat.prescription && setPrescriptionText(pat.prescription)
                   return (
                     <tr key={pat.pId} className="border-t border-teal-200">
