@@ -1,3 +1,4 @@
+import Activate from "../components/patient/activate.component";
 import DoctorPage from "../pages/doctor.page";
 import HomePage from "../pages/home.page";
 import HospitalPage from "../pages/hospital.page";
@@ -26,4 +27,9 @@ export const PUBLIC_ROUTES = [
     path: "/login",
     component: <LoginPage />,
   },
+  {
+    path: "/activate",
+    component: <Activate />,
+  },
+
 ];
