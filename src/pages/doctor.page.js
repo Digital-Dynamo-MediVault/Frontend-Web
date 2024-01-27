@@ -1,17 +1,15 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import DoctorComponent from '../components/doctor/doctor.component'
+import React from "react";
+import { Helmet } from "react-helmet";
+import Doctor from "../components/doctor/doctor.component";
 function DoctorPage() {
-    return (
-        <>
-            <Helmet>
-                <title>
-                    Doctor | login
-                </title>
-            </Helmet>
-            <DoctorComponent />
-        </>
-    )
+  return (
+    <>
+      <Helmet>
+        <title>Doctor | login</title>
+      </Helmet>
+      <Doctor />
+    </>
+  );
 }
 
-export default DoctorPage
+export default DoctorPage;

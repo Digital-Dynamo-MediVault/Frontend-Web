@@ -1,102 +1,74 @@
-import React, { useEffect, useState } from 'react'
-import { Web3 } from 'web3';
-import contractABI from '../../constants/abi.json';
-import { bytecode } from '../../constants/bytecode';
+import { useState } from "react";
+import Header from "../common/Header";
+import Sidebar from "../common/Sidebar";
+
 function Doctor() {
-    const [connectedAccount, setConnectedAccount] = useState('null');
-    const [value, setValue] = useState(0);
-    const connectMetamask = async () => {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        setConnectedAccount(accounts[0]);
-    }
-    const contractAddress = '0x452C2aA95e2EEC97C05a974210646C3ED74Ee729'; // Your contract address here
+  const [frameCheckboxChecked, setFrameCheckboxChecked] = useState(true);
+  const [frameCheckbox1Checked, setFrameCheckbox1Checked] = useState(true);
+  const [frameCheckbox2Checked, setFrameCheckbox2Checked] = useState(true);
 
-
-    const web3 = new Web3(new Web3.providers.HttpProvider(`https://polygonzkevm-testnet.g.alchemy.com/v2/lsmKHpFVS4DmS_WzTTQd1S_aXgc5jRBZ`));
-
-    const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
-
-    const interactWithContract = async () => {
-        try {
-            // Request account access if needed
-            await window.ethereum.enable();
-
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-            const connectedAccount = accounts[0];
-
-            const nonce = await web3.eth.getTransactionCount(connectedAccount, 'pending');
-            const gasPrice = await web3.eth.getGasPrice();
-            const gasLimit = 10000000;
-
-            const rawTransaction = {
-                from: connectedAccount,
-                nonce: '0x' + nonce.toString(16),
-                gasPrice: '0x' + parseInt(gasPrice).toString(16),
-                gasLimit: '0x' + parseInt(gasLimit).toString(16),
-                to: contractAddress,
-                value: '0x0',
-                data: contractInstance.methods.store(value).encodeABI(),
-            };
-
-            // Sign transaction with MetaMask
-            const signedTransaction = await window.ethereum.request({
-                method: 'eth_sendTransaction',
-                params: [rawTransaction],
-            });
-
-            console.log('Transaction sent to MetaMask. Please confirm in MetaMask.');
-
-            // Wait for the transaction receipt with a timeout of 3 minutes (adjust as needed)
-            const timeout = 180000; // 3 minutes in milliseconds
-            const startTime = Date.now();
-
-            let receipt;
-
-            while (Date.now() - startTime < timeout) {
-                try {
-                    receipt = await web3.eth.getTransactionReceipt(signedTransaction);
-                } catch (error) {
-                    console.error('Error fetching transaction receipt:', error);
-                }
-
-                if (receipt) {
-                    console.log('Transaction receipt:', receipt);
-                    break; // Exit the loop if receipt is found
-                } else {
-                    await new Promise(resolve => setTimeout(resolve, 1000)); // wait for 1 second before checking again
-                }
-            }
-
-            if (!receipt) {
-                console.error('Transaction not found within the timeout period.');
-            }
-        } catch (error) {
-            console.error('Error interacting with contract:', error);
-        }
-    };
-
-
-
-    async function retrieve() {
-        try {
-            const storedValue = await contractInstance.methods.retrieve().call({ from: connectedAccount });
-            console.log('Value retrieved:', storedValue);
-        } catch (error) {
-            console.error('Error:', error.message);
-        }
-    }
-
-
-    return (
-        <>
-            <div> <button onClick={() => connectMetamask()}>Connect to Metamask</button></div>
-            <h2>{connectedAccount}</h2>
-            <input type="number" value={value} onChange={(e) => setValue(e.target.value)} />
-            <button onClick={() => interactWithContract()}>Interact with Contract</button>
-            <br />
-            <button onClick={() => retrieve()}>Retrieve</button>
-        </>
-    )
+  const daysArray = Array.from({ length: 31 }, (_, index) => index + 1);
+  const patArray = Array.from({ length: 7 }, (_, index) => index + 1);
+  return (
+    <div className="flex h-[100vh] w-[100vw]">
+      <Sidebar />
+      <div className="flex flex-col items-center justify-between">
+        <Header />
+        <div className="flex p-3">
+          <div className="h-[35vh] rounded-2xl w-[55vw] bg-azure m-2"> 
+            <div className="rounded-t-3xs flex items-center mb-[2vh] justify-between h-[4vh] w-[54.8vw] bg-teal-100 flex items-start justify-between text-[1.2rem] text-white border-solid border-teal-200">
+              <b className="mx-2">TODAYS PATIENT</b>
+              <b className="mx-2">24th JAN 2024</b>
+            </div>
+            {patArray.map((pat) => (
+              <div className="flex items-center justify-between">
+                <input
+                  className="h-[3vh] w-[3vw] relative rounded-8xs box-border z-[1] border-[1px] border-solid border-teal-100"
+                  checked={frameCheckbox1Checked}
+                  type="checkbox"
+                  onChange={(event) =>
+                    setFrameCheckbox1Checked(event.target.checked)
+                  }
+                />
+                <div className="flex flex-col items-start justify-start">
+                  <div className="text-black font-medium">NAME</div>
+                </div>
+                <div className="text-black font-medium">
+                  IDENTIFICATION NUMBER
+                </div>
+                <div className="text-black font-medium">LAST VISIT</div>
+                <div className="text-black font-medium">STATUS</div>
+                <div className="text-black font-medium">NEXT VISIT</div>
+                <div className="text-black font-medium pr-4">RECENT TOPIC</div>
+              </div>
+            ))}
+          </div>
+          <div className="h-[30vh] w-[25vw] m-2 rounded-3xs bg-azure flex flex-col">
+            <div className="rounded-t-3xs flex items-center justify-between h-[4vh] w-[24.8vw] bg-teal-100 flex items-start justify-between text-[1.2rem] text-white">
+              <b className="mx-2">CALENDER</b>
+              <b className="mx-2">JAN 2024</b>
+            </div>
+            <div className="m-5 grid grid-rows-5 grid-flow-col gap-3">
+              {daysArray.map((day) => (
+                <div
+                  key={day}
+                  className="h-[1.88rem] w-[1.88rem] relative rounded-8xs bg-azure-200 text-black box-border z-[1] border-[1px] border-solid border-teal-100"
+                >
+                  {day}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="bg-azure box-border border border-solid border-teal-200 mb-5 h-[40vh] w-[50vw] rounded-xl mx-auto">
+          <div className="h-[4vh] w-[50vw] items-center pl-4 rounded-t-3xs text-white font-medium bg-teal-100 box-border flex items-start justify-between ">
+            PATIENT'S OBSERVATIONS
+          </div>
+          <div className="w-[45vw] h-[30vh]">Description</div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Doctor
+export default Doctor;
