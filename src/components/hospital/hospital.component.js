@@ -44,6 +44,13 @@ function Hospital() {
                 <div className="popup-content">VIEW ALL</div>
               </div>
             </div>
+            <div className="bg-azure p-2">
+              <input
+                type="text"
+                placeholder="SEARCH"
+                className="text-black text-gray-500 text-2.3rem outline-none"
+              />
+            </div>
           </div>
         </div>
       </div>
