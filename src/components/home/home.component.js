@@ -24,6 +24,7 @@ const HomePage = () => {
         style={imageStyle}
         alt="Landing Background"
         loading="lazy"
+        className="pb-10"
       />
       <section className="bg-gray flex items-center justify-start pt-[2.19rem] px-[2.19rem] pb-[5.69rem] box-border gap-[22.25rem] text-left text-[3.2rem] text-white font-inter">
         <footer className="h-[18.31rem] w-[94.5rem] relative bg-gray hidden" />
