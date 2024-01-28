@@ -3,10 +3,19 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Navigate from './navigation';
 import toast, { Toaster } from 'react-hot-toast';
+import cookie from 'react-cookies';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [onBoarding, setIsOnBoarding] = useState(true)
+  useEffect(() => {
+    if (cookie.load('metamaskAddress')) {
+      setIsLoggedIn(true)
+      setIsOnBoarding(false)
+    }
+  }, [])
+
+
   return (
     <div className="App">
       <Navigate isLoggedIn={isLoggedIn} onBoarding={onBoarding} />

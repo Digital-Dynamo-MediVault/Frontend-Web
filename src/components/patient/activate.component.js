@@ -77,6 +77,7 @@ function Activate() {
 
                                 if (receipt) {
                                     console.log('Transaction receipt:', receipt);
+                                    window.alert(`Your Patient ID Is ${response.data.user.pId}`)
                                     setSuccess(true);
                                     break; // Exit the loop if receipt is found
                                 } else {
@@ -93,6 +94,7 @@ function Activate() {
                     }) :
                     axios.post(`${apiUrl}/doctor/activate`, { email: queryParams.get('email'), password: password, metamaskAddress: accounts[0] }).then(async function (response) {
                         console.log(response.data.user);
+
                         try {
                             // Request account access if needed
                             const web3 = new Web3(new Web3.providers.HttpProvider(`https://polygonzkevm-testnet.g.alchemy.com/v2/lsmKHpFVS4DmS_WzTTQd1S_aXgc5jRBZ`));
@@ -148,6 +150,7 @@ function Activate() {
 
                                 if (receipt) {
                                     console.log('Transaction receipt:', receipt);
+                                    window.alert(`Your Doctor ID Is ${response.data.user.dId}`)
                                     setSuccess(true);
                                     break; // Exit the loop if receipt is found
                                 } else {

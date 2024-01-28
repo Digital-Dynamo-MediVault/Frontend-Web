@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faCog, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import cookie from "react-cookies";
 
 const iconStyle = {
     color: "#FFFFFF",
@@ -15,9 +16,7 @@ function Header() {
                     className="w-[30vw] h-[4vh] bg-[#dcebed] my-3 mx-2 p-2 border-2 rounded"
                     style={{ borderColor: "teal-200" }}
                 >
-                    <div className="font-inter font-bold text-[#73a0a5] mt-1 ml-2 text-xl text-left text-[1.4rem]">
-                        SEARCH
-                    </div>
+
                 </div>
 
                 <div className="flex items-center">
@@ -25,10 +24,10 @@ function Header() {
                         <FontAwesomeIcon icon={faBell} style={iconStyle} />
                     </div>
                     <div className="flex bg-[#2b6a72] h-[2.5vw] w-[2.5vw] border rounded-full m-2 items-center justify-center">
-                        <FontAwesomeIcon icon={faCog} style={iconStyle} />
-                    </div>
-                    <div className="flex bg-[#2b6a72] h-[2.5vw] w-[2.5vw] border rounded-full m-2 items-center justify-center">
                         <FontAwesomeIcon icon={faUser} style={iconStyle} />
+                    </div>
+                    <div className="flex bg-[#2b6a72] h-[2.5vw] w-[2.5vw] border rounded-full m-2 items-center justify-center cursor-pointer" onClick={(e) => { e.preventDefault(); cookie.remove("metamaskAddress"); window.location.reload() }}>
+                        <FontAwesomeIcon icon={faRightFromBracket} style={iconStyle} />
                     </div>
                 </div>
             </div>

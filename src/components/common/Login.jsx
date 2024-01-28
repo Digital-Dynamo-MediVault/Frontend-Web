@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
 import loginpage from "../assets/loginpage.svg"
 import logo from "../assets/logo.svg"
+import { apiUrl } from '../../constants/apiUrl';
+import cookie from 'react-cookies'
+import axios from 'axios';
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const handleLogin = () => {
-        console.log()
+
+        axios.post(`${apiUrl}/doctor/login`, { email, password }).then((res) => {
+            if (res.status === 200) {
+                cookie.save('metamaskAddress', res.data.user.metamaskAddress);
+                window.location.href = "/doctor";
+            }
+        })
     }
 
 
@@ -39,7 +48,7 @@ function Login() {
                             value={password}
                             required />
                     </div>
-                    <button className=' bg-teal-200 text-[white] h-[4vh] rounded-md w-[15vw] cursor-pointer hover:bg-teal-300 transition-all duration-300 ease-in-out' onClick={handleLogin} >LOGIN</button>
+                    <button className=' bg-teal-200 text-[white] h-[4vh] rounded-md w-[15vw] cursor-pointer hover:bg-teal-300 transition-all duration-300 ease-in-out' onClick={(e) => { e.preventDefault(); handleLogin() }} >LOGIN</button>
 
                 </div>
 

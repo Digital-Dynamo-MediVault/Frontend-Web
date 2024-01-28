@@ -21,18 +21,18 @@ function Navigation({ isLoggedIn, onBoarding }) {
                     )
                 }
                 {
-                    isLoggedIn &&
+                    !isLoggedIn &&
                     PUBLIC_ROUTES.map(route =>
                         <Route path={route.path} element={route.component} key={route.path} />
                     )
                 }
                 {
                     isLoggedIn &&
-                    <Route path="*" element={<Navigate to="/" />} />
+                    <Route path="*" element={<Navigate to="/doctor" />} />
                 }
                 {
                     !isLoggedIn &&
-                    <Route path="*" element={<Navigate to="/login" />} />
+                    <Route path="*" element={<Navigate to="/home" />} />
                 }
             </Routes>
 

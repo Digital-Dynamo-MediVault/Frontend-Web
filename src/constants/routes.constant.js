@@ -26,7 +26,7 @@ export const PRIVATE_ROUTES = [
 ];
 export const PUBLIC_ROUTES = [
   {
-    path: "/",
+    path: "/home",
     component: <HomePage />,
   },
   {
