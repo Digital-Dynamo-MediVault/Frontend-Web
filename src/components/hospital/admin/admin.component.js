@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../../common/Sidebar";
-import Header from "../../common/Header";
+import Header from "../../common/AdminHeader";
 import docImg from "../../assets/newdoctor.svg";
 import caseImg from "../../assets/newcase.svg";
 import patImg from "../../assets/newpatient.svg";

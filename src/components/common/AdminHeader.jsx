@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import cookie from "react-cookies";
 import axios from "axios";
-import { apiUrl } from "../../constants/apiUrl";
+import { apiUrl, contractAddress } from "../../constants/apiUrl";
 
 const iconStyle = {
     color: "#FFFFFF",
@@ -23,6 +23,7 @@ function DoctorHeader() {
                     className="w-[30vw] h-[4vh] bg-[#dcebed] my-3 mx-2 p-2 border-2 rounded"
                     style={{ borderColor: "teal-200" }}
                 >
+                    <div className="flex justify-between"><b>Hospital Id: {contractAddress}</b></div>
 
                 </div>
 

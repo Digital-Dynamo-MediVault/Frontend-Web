@@ -19,35 +19,24 @@ function Sidebar() {
         <div className="flex flex-col items-center justify-start gap-[1.31rem] ">
           <Link
             to="/hospital"
-            className="no-underline cursor-pointer [border:none] py-[0.69rem] pr-[2.63rem] pl-[2.38rem] bg-teal-100 flex flex-row items-center justify-center z-[1] hover:bg-cadetblue w-[6vw]"
+            className="no-underline cursor-pointer [border:none] py-[0.69rem] pr-[2.63rem] pl-[2.38rem]  flex flex-row items-center justify-center z-[1] hover:bg-cadetblue w-[6vw]"
           >
             <div className="h-[2.94rem] w-[11.44rem] relative bg-teal-100 hidden" />
-            <div className="relative text-[1.28rem] font-medium font-inter text-white text-left z-[2] mq450:text-[1rem] ">
+            <div className="relative text-[1.28rem] font-medium font-inter text-black text-left z-[2] mq450:text-[1rem] ">
               Dashboard
             </div>
           </Link>
           <div className="flex flex-row items-start justify-start py-[0rem] pr-[1.5rem] pl-[1.25rem]">
             <Link
-              to="/admin/doctors"
+              to="/admin"
               className="relative font-medium z-[1] mq450:text-[1rem] cursor-pointer [border:none] py-[0.69rem] pr-[2.63rem] pl-[2.38rem] flex flex-row items-center justify-center  hover:bg-cadetblue no-underline text-black w-[6vw]"
             >
-              Patients
+              Admin
             </Link>
           </div>
         </div>
       </div>
-      <Link
-        to="/admin"
-        className="no-underline flex flex-row items-center justify-end pt-[3.5rem] pb-[3.44rem] relative text-white"
-      >
-        <img
-          className="w-full absolute my-0 mx-[!important] h-full top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] rounded-3xs max-w-full overflow-hidden max-h-full z-[1]"
-          loading="eager"
-          alt=""
-          src={greenbg}
-        />
-        <b className="relative z-[2] mq450:text-[0.5rem] m-2">ADMIN SECTION</b>
-      </Link>
+
     </nav>
   );
 }

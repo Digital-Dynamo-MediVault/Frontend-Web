@@ -12,6 +12,7 @@ function Login() {
         axios.post(`${apiUrl}/doctor/login`, { email, password }).then((res) => {
             if (res.status === 200) {
                 cookie.save('metamaskAddress', res.data.user.metamaskAddress);
+                cookie.save('user', res.data.user);
                 window.location.href = "/doctor";
             }
         })

@@ -60,7 +60,7 @@ function Doctor() {
                 <p onClick={fetchData} className="cursor-pointer">🔃</p>
                 <b className="mx-2">TODAYS PATIENT</b>
               </div>
-              <b className="mx-2">24th JAN 2024</b>
+              <b className="mx-2">28th JAN 2024</b>
             </div>
             <table className="w-full border-collapse">
               <thead>
